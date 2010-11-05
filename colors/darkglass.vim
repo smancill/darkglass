@@ -1,12 +1,22 @@
 " Vim color file
-" Name:       inkpot.vim
-" Maintainer: Ciaran McCreesh <ciaran.mccreesh@googlemail.com>
-" Homepage:   http://github.com/ciaranm/inkpot/
+"
+" This is a fork of the original colorsqueme inkpot.vim, created by
+" Ciaran McCreesh <ciaran.mccreesh@googlemail.com>.
+"
+" You can visit the original homepage here: http://github.com/ciaranm/inkpot/
+"
+" I am using this colorsqueme in a transparent urxvt, so I have removed the
+" background color for the terminal, and changed some colors to make them
+" darker.
+"
+" Name:       darkglass.vim
+" Maintainer: Sebastian Mancilla <smancill.m@gmail.com>
+" Homepage:   http://github.com/smancill/inkpot
 "
 " This should work in the GUI, rxvt-unicode (88 colour mode) and xterm (256
 " colour mode). It won't work in 8/16 colour terminals.
 "
-" To use a black background, :let g:inkpot_black_background = 1
+" To use a black background, :let g:darkglass_black_background = 1
 
 set background=dark
 hi clear
@@ -14,7 +24,7 @@ if exists("syntax_on")
    syntax reset
 endif
 
-let colors_name = "inkpot"
+let colors_name = "darkglass"
 
 " map a urxvt cube number to an xterm-256 cube number
 fun! <SID>M(a)
@@ -42,12 +52,12 @@ fun! <SID>X(a)
     endif
 endfun
 
-if ! exists("g:inkpot_black_background")
-    let g:inkpot_black_background = 0
+if ! exists("g:darkglass_black_background")
+    let g:darkglass_black_background = 0
 endif
 
 if has("gui_running")
-    if ! g:inkpot_black_background
+    if ! g:darkglass_black_background
         hi Normal         gui=NONE   guifg=#cfbfad   guibg=#1e1e27
     else
         hi Normal         gui=NONE   guifg=#cfbfad   guibg=#000000
@@ -141,11 +151,7 @@ if has("gui_running")
         hi MatchParen   gui=NONE      guifg=#cfbfad   guibg=#4e4e8f
     endif
 else
-    if ! g:inkpot_black_background
-        exec "hi Normal         cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . "NONE"
-    else
-        exec "hi Normal         cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . "NONE"
-    endif
+    exec "hi Normal         cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . "NONE"
 
     exec "hi IncSearch      cterm=BOLD   ctermfg=" . <SID>X(80) . " ctermbg=" . <SID>X(73)
     exec "hi Search         cterm=NONE   ctermfg=" . <SID>X(80) . " ctermbg=" . <SID>X(52)
