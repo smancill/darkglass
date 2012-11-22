@@ -152,6 +152,7 @@ if has("gui_running")
     endif
     if v:version >= 703
         hi Conceal      gui=NONE      guifg=#c080d0   guibg=NONE
+        hi ColorColumn  gui=NONE                      guibg=#2e2e2e
     endif
 else
     exec "hi Normal         cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . "NONE"
@@ -222,6 +223,7 @@ else
     endif
     if v:version >= 703
         exec "hi Conceal      cterm=NONE      ctermfg=" . <SID>X(55) . " ctermbg=" . "NONE"
+        exec "hi ColorColumn  cterm=NONE      ctermbg=" . <SID>X(81)
     endif
 endif
 
