@@ -2,16 +2,15 @@
 "
 " This is a fork of the original colorsqueme inkpot.vim, created by
 " Ciaran McCreesh <ciaran.mccreesh@googlemail.com>.
-"
-" You can visit the original homepage here: http://github.com/ciaranm/inkpot/
+" The original homepage is: https://github.com/ciaranm/inkpot/
 "
 " I am using this colorsqueme in a transparent urxvt, so I have removed the
 " background color for the terminal, and changed some colors to make them
 " darker.
 "
 " Name:       darkglass.vim
-" Maintainer: Sebastian Mancilla <smancill.m@gmail.com>
-" Homepage:   http://github.com/smancill/inkpot
+" Maintainer: Sebastian Mancilla <smancill@smancill.dev>
+" Homepage:   https://github.com/smancill/darkglass
 "
 " This should work in the GUI, rxvt-unicode (88 colour mode) and xterm (256
 " colour mode). It won't work in 8/16 colour terminals.
