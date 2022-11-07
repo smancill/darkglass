@@ -51,15 +51,11 @@ fun! <SID>X(a)
     endif
 endfun
 
-if ! exists("g:darkglass_black_background")
-    let g:darkglass_black_background = 0
-endif
-
 if has("gui_running")
-    if ! g:darkglass_black_background
-        hi Normal         gui=NONE   guifg=#cfbfad   guibg=#1e1e27
-    else
+    if get(g:, "darkglass_black_background", 0)
         hi Normal         gui=NONE   guifg=#cfbfad   guibg=#000000
+    else
+        hi Normal         gui=NONE   guifg=#cfbfad   guibg=#1e1e27
     endif
 
     hi CursorLine         guibg=#2e2e37
@@ -154,7 +150,11 @@ if has("gui_running")
         hi ColorColumn  gui=NONE                      guibg=#2e2e2e
     endif
 else
-    exec "hi Normal         cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . "NONE"
+    if get(g:, "darkglass_black_background", 0)
+        exec "hi Normal         cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(16)
+    else
+        exec "hi Normal         cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . "NONE"
+    endif
 
     exec "hi IncSearch      cterm=BOLD   ctermfg=" . <SID>X(80) . " ctermbg=" . <SID>X(73)
     exec "hi Search         cterm=NONE   ctermfg=" . <SID>X(80) . " ctermbg=" . <SID>X(52)
