@@ -51,7 +51,7 @@ fun! <SID>X(a)
     endif
 endfun
 
-if has("gui_running")
+if has("gui_running") || (has("termguicolors") && &termguicolors)
     if get(g:, "darkglass_black_background", 0)
         hi Normal         gui=NONE   guifg=#cfbfad   guibg=#000000
     else
