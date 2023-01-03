@@ -12,8 +12,8 @@
 " Maintainer: Sebastian Mancilla <smancill@smancill.dev>
 " Homepage:   https://github.com/smancill/darkglass
 "
-" This should work in the GUI, rxvt-unicode (88 colour mode) and xterm (256
-" colour mode). It won't work in 8/16 colour terminals.
+" This should work in the GUI and xterm (256 color mode).
+" It won't work in 8/16/88 color terminals.
 "
 " To use a black background, :let g:darkglass_black_background = 1
 
@@ -24,32 +24,6 @@ if exists("syntax_on")
 endif
 
 let colors_name = "darkglass"
-
-" map a urxvt cube number to an xterm-256 cube number
-fun! <SID>M(a)
-    return strpart("0135", a:a, 1) + 0
-endfun
-
-" map a urxvt colour to an xterm-256 colour
-fun! <SID>X(a)
-    if &t_Co == 88
-        return a:a
-    else
-        if a:a == 8
-            return 237
-        elseif a:a < 16
-            return a:a
-        elseif a:a > 79
-            return 232 + (3 * (a:a - 80))
-        else
-            let l:b = a:a - 16
-            let l:x = l:b % 4
-            let l:y = (l:b / 4) % 4
-            let l:z = (l:b / 16)
-            return 16 + <SID>M(l:x) + (6 * <SID>M(l:y)) + (36 * <SID>M(l:z))
-        endif
-    endif
-endfun
 
 if has("gui_running") || (has("termguicolors") && &termguicolors)
     if get(g:, "darkglass_black_background", 0)
@@ -151,80 +125,80 @@ if has("gui_running") || (has("termguicolors") && &termguicolors)
     endif
 else
     if get(g:, "darkglass_black_background", 0)
-        exec "hi Normal         cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(16)
+        hi Normal         cterm=NONE   ctermfg=231 ctermbg=16
     elseif get(g:, "darkglass_no_background", 1)
-        exec "hi Normal         cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . "NONE"
+        hi Normal         cterm=NONE   ctermfg=231 ctermbg=NONE
     else
-        exec "hi Normal         cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(80)
+        hi Normal         cterm=NONE   ctermfg=231 ctermbg=232
     endif
 
-    exec "hi IncSearch      cterm=BOLD   ctermfg=" . <SID>X(80) . " ctermbg=" . <SID>X(73)
-    exec "hi Search         cterm=NONE   ctermfg=" . <SID>X(80) . " ctermbg=" . <SID>X(52)
-    exec "hi ErrorMsg       cterm=BOLD   ctermfg=" . <SID>X(16) . " ctermbg=" . <SID>X(48)
-    exec "hi WarningMsg     cterm=BOLD   ctermfg=" . <SID>X(16) . " ctermbg=" . <SID>X(68)
-    exec "hi ModeMsg        cterm=BOLD   ctermfg=" . <SID>X(38) . " ctermbg=" . "NONE"
-    exec "hi MoreMsg        cterm=BOLD   ctermfg=" . <SID>X(38) . " ctermbg=" . "NONE"
-    exec "hi Question       cterm=BOLD   ctermfg=" . <SID>X(52) . " ctermbg=" . "NONE"
+    hi IncSearch      cterm=BOLD   ctermfg=232 ctermbg=215
+    hi Search         cterm=NONE   ctermfg=232 ctermbg=130
+    hi ErrorMsg       cterm=BOLD   ctermfg=16 ctermbg=124
+    hi WarningMsg     cterm=BOLD   ctermfg=16 ctermbg=202
+    hi ModeMsg        cterm=BOLD   ctermfg=61 ctermbg=NONE
+    hi MoreMsg        cterm=BOLD   ctermfg=61 ctermbg=NONE
+    hi Question       cterm=BOLD   ctermfg=130 ctermbg=NONE
 
-    exec "hi StatusLine     cterm=BOLD   ctermfg=" . <SID>X(85) . " ctermbg=" . <SID>X(81)
-    exec "hi User1          cterm=BOLD   ctermfg=" . <SID>X(28) . " ctermbg=" . <SID>X(81)
-    exec "hi User2          cterm=BOLD   ctermfg=" . <SID>X(39) . " ctermbg=" . <SID>X(81)
-    exec "hi StatusLineNC   cterm=NONE   ctermfg=" . <SID>X(84) . " ctermbg=" . <SID>X(81)
-    exec "hi VertSplit      cterm=NONE   ctermfg=" . <SID>X(84) . " ctermbg=" . <SID>X(81)
+    hi StatusLine     cterm=BOLD   ctermfg=247 ctermbg=235
+    hi User1          cterm=BOLD   ctermfg=46 ctermbg=235
+    hi User2          cterm=BOLD   ctermfg=63 ctermbg=235
+    hi StatusLineNC   cterm=NONE   ctermfg=244 ctermbg=235
+    hi VertSplit      cterm=NONE   ctermfg=244 ctermbg=235
 
-    exec "hi WildMenu       cterm=BOLD   ctermfg=" . <SID>X(87) . " ctermbg=" . <SID>X(38)
+    hi WildMenu       cterm=BOLD   ctermfg=253 ctermbg=61
 
-    exec "hi MBENormal                   ctermfg=" . <SID>X(85) . " ctermbg=" . <SID>X(81)
-    exec "hi MBEChanged                  ctermfg=" . <SID>X(87) . " ctermbg=" . <SID>X(81)
-    exec "hi MBEVisibleNormal            ctermfg=" . <SID>X(85) . " ctermbg=" . <SID>X(82)
-    exec "hi MBEVisibleChanged           ctermfg=" . <SID>X(87) . " ctermbg=" . <SID>X(82)
+    hi MBENormal                   ctermfg=247 ctermbg=235
+    hi MBEChanged                  ctermfg=253 ctermbg=235
+    hi MBEVisibleNormal            ctermfg=247 ctermbg=238
+    hi MBEVisibleChanged           ctermfg=253 ctermbg=238
 
-    exec "hi DiffText       cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(34)
-    exec "hi DiffChange     cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(17)
-    exec "hi DiffDelete     cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(32)
-    exec "hi DiffAdd        cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(20)
+    hi DiffText       cterm=NONE   ctermfg=231 ctermbg=55
+    hi DiffChange     cterm=NONE   ctermfg=231 ctermbg=17
+    hi DiffDelete     cterm=NONE   ctermfg=231 ctermbg=52
+    hi DiffAdd        cterm=NONE   ctermfg=231 ctermbg=22
 
-    exec "hi Folded         cterm=NONE   ctermfg=" . <SID>X(16) . " ctermbg=" . <SID>X(84)
-    exec "hi FoldColumn     cterm=NONE   ctermfg=" . <SID>X(39) . " ctermbg=" . <SID>X(80)
+    hi Folded         cterm=NONE   ctermfg=16 ctermbg=244
+    hi FoldColumn     cterm=NONE   ctermfg=63 ctermbg=232
 
-    exec "hi Directory      cterm=NONE   ctermfg=" . <SID>X(28) . " ctermbg=" . "NONE"
-    exec "hi LineNr         cterm=NONE   ctermfg=" . <SID>X(39) . " ctermbg=" . "NONE"
-    exec "hi NonText        cterm=BOLD   ctermfg=" . <SID>X(39) . " ctermbg=" . "NONE"
-    exec "hi SpecialKey     cterm=BOLD   ctermfg=" . <SID>X(55) . " ctermbg=" . "NONE"
-    exec "hi Title          cterm=BOLD   ctermfg=" . <SID>X(48) . " ctermbg=" . "NONE"
-    exec "hi Visual         cterm=NONE   ctermfg=" . <SID>X(15) . " ctermbg=" . <SID>X(82)
+    hi Directory      cterm=NONE   ctermfg=46 ctermbg=NONE
+    hi LineNr         cterm=NONE   ctermfg=63 ctermbg=NONE
+    hi NonText        cterm=BOLD   ctermfg=63 ctermbg=NONE
+    hi SpecialKey     cterm=BOLD   ctermfg=135 ctermbg=NONE
+    hi Title          cterm=BOLD   ctermfg=124 ctermbg=NONE
+    hi Visual         cterm=NONE   ctermfg=15 ctermbg=238
 
-    exec "hi Comment        cterm=NONE   ctermfg=" . <SID>X(83) . " ctermbg=" . "NONE"
-    exec "hi Constant       cterm=NONE   ctermfg=" . <SID>X(73) . " ctermbg=" . "NONE"
-    exec "hi String         cterm=NONE   ctermfg=" . <SID>X(73) . " ctermbg=" . <SID>X(81)
-    exec "hi Error          cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(32)
-    exec "hi Identifier     cterm=NONE   ctermfg=" . <SID>X(53) . " ctermbg=" . "NONE"
-    exec "hi Ignore         cterm=NONE"
-    exec "hi Number         cterm=NONE   ctermfg=" . <SID>X(69) . " ctermbg=" . "NONE"
-    exec "hi PreProc        cterm=NONE   ctermfg=" . <SID>X(25) . " ctermbg=" . "NONE"
-    exec "hi Special        cterm=NONE   ctermfg=" . <SID>X(55) . " ctermbg=" . "NONE"
-    exec "hi SpecialChar    cterm=NONE   ctermfg=" . <SID>X(55) . " ctermbg=" . <SID>X(81)
-    exec "hi Statement      cterm=NONE   ctermfg=" . <SID>X(27) . " ctermbg=" . "NONE"
-    exec "hi Todo           cterm=BOLD   ctermfg=" . <SID>X(16) . " ctermbg=" . <SID>X(57)
-    exec "hi Type           cterm=NONE   ctermfg=" . <SID>X(71) . " ctermbg=" . "NONE"
-    exec "hi Underlined     cterm=BOLD   ctermfg=" . <SID>X(77) . " ctermbg=" . "NONE"
-    exec "hi TaglistTagName cterm=BOLD   ctermfg=" . <SID>X(39) . " ctermbg=" . "NONE"
+    hi Comment        cterm=NONE   ctermfg=241 ctermbg=NONE
+    hi Constant       cterm=NONE   ctermfg=215 ctermbg=NONE
+    hi String         cterm=NONE   ctermfg=215 ctermbg=235
+    hi Error          cterm=NONE   ctermfg=231 ctermbg=52
+    hi Identifier     cterm=NONE   ctermfg=131 ctermbg=NONE
+    hi Ignore         cterm=NONE
+    hi Number         cterm=NONE   ctermfg=203 ctermbg=NONE
+    hi PreProc        cterm=NONE   ctermfg=35 ctermbg=NONE
+    hi Special        cterm=NONE   ctermfg=135 ctermbg=NONE
+    hi SpecialChar    cterm=NONE   ctermfg=135 ctermbg=235
+    hi Statement      cterm=NONE   ctermfg=39 ctermbg=NONE
+    hi Todo           cterm=BOLD   ctermfg=16 ctermbg=143
+    hi Type           cterm=NONE   ctermfg=207 ctermbg=NONE
+    hi Underlined     cterm=BOLD   ctermfg=227 ctermbg=NONE
+    hi TaglistTagName cterm=BOLD   ctermfg=63 ctermbg=NONE
 
     if v:version >= 700
-        exec "hi Pmenu          cterm=NONE   ctermfg=" . <SID>X(87) . " ctermbg=" . <SID>X(82)
-        exec "hi PmenuSel       cterm=BOLD   ctermfg=" . <SID>X(87) . " ctermbg=" . <SID>X(38)
-        exec "hi PmenuSbar      cterm=BOLD   ctermfg=" . <SID>X(87) . " ctermbg=" . <SID>X(39)
-        exec "hi PmenuThumb     cterm=BOLD   ctermfg=" . <SID>X(87) . " ctermbg=" . <SID>X(39)
+        hi Pmenu          cterm=NONE   ctermfg=253 ctermbg=238
+        hi PmenuSel       cterm=BOLD   ctermfg=253 ctermbg=61
+        hi PmenuSbar      cterm=BOLD   ctermfg=253 ctermbg=63
+        hi PmenuThumb     cterm=BOLD   ctermfg=253 ctermbg=63
 
-        exec "hi SpellBad       cterm=NONE ctermbg=" . <SID>X(32)
-        exec "hi SpellRare      cterm=NONE ctermbg=" . <SID>X(33)
-        exec "hi SpellLocal     cterm=NONE ctermbg=" . <SID>X(36)
-        exec "hi SpellCap       cterm=NONE ctermbg=" . <SID>X(21)
-        exec "hi MatchParen     cterm=NONE ctermbg=" . <SID>X(14) . "ctermfg=" . <SID>X(25)
+        hi SpellBad       cterm=NONE ctermbg=52
+        hi SpellRare      cterm=NONE ctermbg=53
+        hi SpellLocal     cterm=NONE ctermbg=58
+        hi SpellCap       cterm=NONE ctermbg=23
+        hi MatchParen     cterm=NONE ctermfg=35 ctermbg=14 
     endif
     if v:version >= 703
-        exec "hi Conceal      cterm=NONE      ctermfg=" . <SID>X(55) . " ctermbg=" . "NONE"
-        exec "hi ColorColumn  cterm=NONE      ctermbg=" . <SID>X(81)
+        hi Conceal      cterm=NONE      ctermfg=135 ctermbg=NONE
+        hi ColorColumn  cterm=NONE      ctermbg=235
     endif
 endif
 
