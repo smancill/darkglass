@@ -194,7 +194,7 @@ else
         hi SpellRare      cterm=NONE ctermbg=53
         hi SpellLocal     cterm=NONE ctermbg=58
         hi SpellCap       cterm=NONE ctermbg=23
-        hi MatchParen     cterm=NONE ctermfg=35 ctermbg=14 
+        hi MatchParen     cterm=NONE ctermbg=30 ctermfg=15
     endif
     if v:version >= 703
         hi Conceal      cterm=NONE      ctermfg=135 ctermbg=NONE
