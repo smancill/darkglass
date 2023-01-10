@@ -168,7 +168,7 @@ else
     hi Title          cterm=BOLD   ctermfg=124 ctermbg=NONE
     hi Visual         cterm=NONE   ctermfg=15 ctermbg=238
 
-    hi Comment        cterm=NONE   ctermfg=241 ctermbg=NONE
+    hi Comment        cterm=NONE   ctermfg=244 ctermbg=NONE
     hi Constant       cterm=NONE   ctermfg=215 ctermbg=NONE
     hi String         cterm=NONE   ctermfg=215 ctermbg=235
     hi Error          cterm=NONE   ctermfg=231 ctermbg=52
