@@ -35,6 +35,7 @@ if has("gui_running") || (has("termguicolors") && &termguicolors)
     hi CursorLine         guibg=#2e2e37
 
     hi IncSearch      gui=BOLD   guifg=#303030   guibg=#cd8b60
+    hi CurSearch      gui=NONE   guifg=#303030   guibg=#cd8b60
     hi Search         gui=NONE   guifg=#303030   guibg=#ad7b57
     hi ErrorMsg       gui=BOLD   guifg=#ffffff   guibg=#ce4e4e
     hi WarningMsg     gui=BOLD   guifg=#ffffff   guibg=#ce8e4e
@@ -133,6 +134,7 @@ else
     endif
 
     hi IncSearch      cterm=BOLD   ctermfg=232 ctermbg=215
+    hi CurSearch      cterm=NONE   ctermfg=232 ctermbg=215
     hi Search         cterm=NONE   ctermfg=232 ctermbg=130
     hi ErrorMsg       cterm=BOLD   ctermfg=16 ctermbg=124
     hi WarningMsg     cterm=BOLD   ctermfg=16 ctermbg=202
