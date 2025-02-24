@@ -1,0 +1,184 @@
+Full name:  darkglass.vim
+Short name: darkglass
+Author: Ciaran McCreesh <ciaran.mccreesh@googlemail.com>
+Maintainer: Sebastián Mancilla <smancill@smancill.dev>
+Description: A fork of inkpot.vim colorscheme with transparent background.
+URL: https://github.com/smancill/darkglass
+Options: backend=legacy
+Options: creator=false
+Options: palette=false
+Options: timestamp=false
+
+Background: dark
+Variants: 256
+
+LineNrAbove       -> LineNr
+LineNrBelow       -> LineNr
+PmenuKind         -> Pmenu
+PmenuKindSel      -> PmenuSel
+PmenuExtra        -> Pmenu
+PmenuExtraSel     -> PmenuSel
+PmenuMatch        -> Pmenu
+PmenuMatchSel     -> PmenuSel
+PopupNotification -> WarningMsg
+PopupSelected     -> PmenuSel
+
+Color: blue10           #808bed        39
+Color: blue30           #8b8bcd        63
+Color: blue40           #6e6eaf        63
+Color: blue41           #2e2e3f        61
+Color: blue42           #6e6eaf        61
+Color: blue50           #7e7eae        61
+Color: blue51           #7070a0        63
+Color: blue52           #808bed        63
+Color: blue60           #306b8f        17
+Color: blue80           #66cccc        23
+
+Color: green10          #00ff8b        46
+Color: green30          #409090        35
+Color: green50          #008787        30
+Color: green60          #306d30        22
+Color: green91          #8b8bff       120
+
+Color: white10          #cfbfad       231
+Color: white30          #ffffcd       231
+Color: white40          #ffffff       231
+
+Color: grey00           #000000        16
+Color: grey10           #1e1e27        16
+Color: grey20           #303030       232
+Color: grey30           #2e2e2e       232
+Color: grey31           #2e2e2e       235
+Color: grey32           #2e2e37       235
+Color: grey33           #3e3e5e       235
+Color: grey40           #404040       235
+Color: grey50           #4e4e8f       238
+Color: grey80           #b9b9b9       244
+Color: grey81           #b9b9b9       247
+Color: grey85           #cfcfcd       251
+Color: grey90           #eeeeee       253
+
+Color: purple10         #c080d0       135
+Color: purple20         #3b205d       135
+Color: purple60         #4a2a4a        55
+Color: purple70         #4b208f        54
+Color: purple80         #cc66cc        53
+Color: purple91         #8fff8b       105
+
+Color: red10            #ff8bff       131
+Color: red20            #f0ad6d       203
+Color: red30            #ff8bff       207
+Color: red40            #ce4e4e       124
+Color: red50            #af4f4b       124
+Color: red60            #6d3030        52
+Color: red70            #6e2e2e        52
+Color: red80            #cc6666        52
+
+Color: yellow10         #ffcd8b       215
+Color: yellow20         #df9f2d       227
+Color: yellow30         #d0a060       143
+
+Color: orange10         #ad7b57       130
+Color: orange20         #cd8b60       215
+Color: orange30         #ce8e4e       202
+Color: orange40         #ffcd00       130
+Color: orange50         #cd8b00       172
+Color: orange80         #cccc66        58
+
+Color: black            #000000         0
+Color: red              #d81e00         1
+Color: green            #5ea702         2
+Color: yellow           #cfae00         3
+Color: blue             #427ab3         4
+Color: magenta          #89658e         5
+Color: cyan             #00a7aa         6
+Color: grey             #dbded8         7
+
+Color: brightblack      #686a66         8
+Color: brightred        #f54235         9
+Color: brightgreen      #99e343        10
+Color: brightyellow     #fdeb61        11
+Color: brightblue       #84b0d8        12
+Color: brightmagenta    #bc94b7        13
+Color: brightcyan       #37e6e8        14
+Color: white            #f1f1f0        15
+
+Term Colors: black red green yellow blue magenta cyan grey
+             brightblack brightred brightgreen brightyellow brightblue brightmagenta brightcyan white
+
+#const black_bg = get(g:, 'darkglass_black_background', 0)
+
+Normal                  white10         grey10
+Normal    +black_bg 1   white10         grey00
+Normal/256+black_bg 0   white10         none
+
+ColorColumn             omit            grey31
+Comment                 orange50        none
+Comment     /256        grey80          none
+Conceal                 purple10        none
+Constant                yellow10        none
+CurSearch               grey20          orange20
+Cursor                  grey40          green91
+Cursor      /256        omit            omit            omit
+CursorIM                grey40          green91
+CursorIM    /256        omit            omit            omit
+CursorLine              omit            grey32
+CursorLine  /256        omit            omit            omit
+DiffAdd                 white30         green60
+DiffChange              white30         blue60
+DiffDelete              white30         red60
+DiffText                white30         purple60
+Directory               green10         none
+Error                   white40         red70
+ErrorMsg                white40         red40           bold
+ErrorMsg    /256        grey00          red40           bold
+FoldColumn              blue30          grey30
+Folded                  grey85          purple70
+Folded      /256        grey00          grey80
+Identifier              red10           none
+Ignore                  omit            omit
+IncSearch               grey20          orange20        bold
+LineNr                  blue30          grey31
+LineNr      /256        blue30          none
+MatchParen              white10         grey50
+MatchParen  /256        white10         green50
+ModeMsg                 blue50          none            bold
+MoreMsg                 blue50          none            bold
+NonText                 blue30          none            bold
+Number                  red20           none
+Pmenu                   grey90          grey50
+PmenuSbar               grey90          blue40          bold
+PmenuSel                grey90          blue41          bold
+PmenuThumb              grey90          blue40          bold
+PreProc                 green30         none
+Question                orange40        none            bold
+Search                  grey20          orange10
+Special                 purple10        none
+SpecialChar             purple10        grey40
+SpecialKey              purple20        none            bold
+SpellBad                omit            omit            s=red80 undercurl
+SpellBad    /256        omit            red80
+SpellCap                omit            omit            s=blue80 undercurl
+SpellCap    /256        omit            blue80
+SpellLocal              omit            omit            s=orange80 undercurl
+SpellLocal  /256        omit            orange80
+SpellRare               omit            omit            s=purple80 undercurl
+SpellRare   /256        omit            purple80
+Statement               blue10          none
+StatusLine              grey81          grey33          bold
+StatusLineNC            grey80          grey33
+String                  yellow10        grey40
+Title                   red50           none            bold
+Todo                    grey20          yellow30        bold
+Type                    red30           none
+Underlined              yellow20        none            bold
+User1                   green10         grey33          bold
+User2                   blue51          grey33          bold
+VertSplit               grey80          grey33
+Visual                  grey90          grey50
+Visual      /256        white10         grey50
+WarningMsg              white40         orange30        bold
+WarningMsg  /256        grey00          orange30        bold
+WildMenu                grey90          blue42          bold
+lCursor                 grey40          purple91
+lCursor     /256        omit            omit
