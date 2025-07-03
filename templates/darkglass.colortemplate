@@ -201,3 +201,5 @@ WarningMsg  /256        grey00          orange30        bold
 WildMenu                grey90          blue42          bold
 lCursor                 grey40          purple91
 lCursor     /256        omit            omit
+
+Include: bw.colortemplate
