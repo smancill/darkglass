@@ -10,7 +10,7 @@ Options: palette=false
 Options: timestamp=false
 
 Background: dark
-Variants: 256
+Environments: gui 256
 
 LineNrAbove       -> LineNr
 LineNrBelow       -> LineNr
@@ -109,7 +109,8 @@ Term Colors: black red green yellow blue magenta cyan grey
 #const black_bg = get(g:, 'darkglass_black_background', 0)
 
 Normal                  white10         grey10
-Normal    +black_bg 1   white10         grey00
+Normal/gui+black_bg 1   white10         grey00
+Normal/256+black_bg 1   white10         grey00
 Normal/256+black_bg 0   white10         none
 
 ColorColumn             omit            grey31
