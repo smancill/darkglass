@@ -12,17 +12,6 @@ Options: timestamp=false
 Background: dark
 Environments: gui 256
 
-LineNrAbove       -> LineNr
-LineNrBelow       -> LineNr
-PmenuKind         -> Pmenu
-PmenuKindSel      -> PmenuSel
-PmenuExtra        -> Pmenu
-PmenuExtraSel     -> PmenuSel
-PmenuMatch        -> Pmenu
-PmenuMatchSel     -> PmenuSel
-PopupNotification -> WarningMsg
-PopupSelected     -> PmenuSel
-
 Color: blue10           #808bed        39
 Color: blue30           #8b8bcd        63
 Color: blue40           #6e6eaf        63
@@ -107,6 +96,35 @@ Term Colors: black red green yellow blue magenta cyan grey
              brightblack brightred brightgreen brightyellow brightblue brightmagenta brightcyan white
 
 #const black_bg = get(g:, 'darkglass_black_background', 0)
+
+Conditional       -> Statement
+CursorColumn      -> CursorLine
+CursorLineFold    -> FoldColumn
+CursorLineSign    -> SignColumn
+Define            -> PreProc
+Exception         -> Statement
+LineNrAbove       -> LineNr
+LineNrBelow       -> LineNr
+Macro             -> PreProc
+PmenuKind         -> Pmenu
+PmenuKindSel      -> PmenuSel
+PmenuExtra        -> Pmenu
+PmenuExtraSel     -> PmenuSel
+PmenuMatch        -> Pmenu
+PmenuMatchSel     -> PmenuSel
+PopupNotification -> WarningMsg
+PopupSelected     -> PmenuSel
+QuickFixLine      -> Search
+StatusLineTerm    -> StatusLine
+StatusLineTermNC  -> StatusLineNC
+TabPanel          -> TabLine
+TabPanelFill      -> TabLineFill
+TabPanelSel       -> TabLineSel
+Tag               -> Special
+Typedef           -> Type
+VisualNOS         -> Visual
+debugBreakpoint   -> SignColumn
+debugPC           -> SignColumn
 
 Normal                  white10         grey10
 Normal/gui+black_bg 1   white10         grey00

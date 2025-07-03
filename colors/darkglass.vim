@@ -16,8 +16,15 @@ let g:terminal_ansi_colors = ['#000000', '#d81e00', '#5ea702', '#cfae00', '#427a
 
 let s:black_bg = get(g:, 'darkglass_black_background', 0)
 
+hi! link Conditional Statement
+hi! link CursorColumn CursorLine
+hi! link CursorLineFold FoldColumn
+hi! link CursorLineSign SignColumn
+hi! link Define PreProc
+hi! link Exception Statement
 hi! link LineNrAbove LineNr
 hi! link LineNrBelow LineNr
+hi! link Macro PreProc
 hi! link PmenuExtra Pmenu
 hi! link PmenuExtraSel PmenuSel
 hi! link PmenuKind Pmenu
@@ -26,6 +33,17 @@ hi! link PmenuMatch Pmenu
 hi! link PmenuMatchSel PmenuSel
 hi! link PopupNotification WarningMsg
 hi! link PopupSelected PmenuSel
+hi! link QuickFixLine Search
+hi! link StatusLineTerm StatusLine
+hi! link StatusLineTermNC StatusLineNC
+hi! link TabPanel TabLine
+hi! link TabPanelFill TabLineFill
+hi! link TabPanelSel TabLineSel
+hi! link Tag Special
+hi! link Typedef Type
+hi! link VisualNOS Visual
+hi! link debugBreakpoint SignColumn
+hi! link debugPC SignColumn
 
 hi Normal guifg=#cfbfad guibg=#1e1e27 guisp=NONE gui=NONE ctermfg=231 ctermbg=16 cterm=NONE
 hi ColorColumn guibg=#2e2e2e guisp=NONE gui=NONE ctermbg=235 cterm=NONE
